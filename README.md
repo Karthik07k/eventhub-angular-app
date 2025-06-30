@@ -24,15 +24,15 @@ A modern Angular 20 application built to manage events, attendees, and user inte
 
 ## 📁 Folder Structure
 
+````plaintext
 event-management-app/
 ├── src/
-│ ├── app/
-│ │ ├── auth/ # Login/Register/Guards
-│ │ ├── events/ # Event list/details
-│ │ ├── profile/ # User profile
-│ │ └── shared/ # Common components
-│ ├
-│ └── index.html
+│   └── app/
+│       ├── auth/       # Login / Register / Guards
+│       ├── events/     # Event list / details
+│       ├── profile/    # User profile
+│       └── shared/     # Common components
+│   └── index.html
 ├── angular.json
 ├── package.json
 └── tsconfig.json
@@ -45,7 +45,7 @@ event-management-app/
    ```bash
    git clone https://github.com/Karthik07k/eventhub-angular-app.git
    cd eventhub-angular-app
-   ```
+````
 
 Install dependencies
 npm install
