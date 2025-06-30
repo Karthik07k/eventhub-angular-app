@@ -1,0 +1,4 @@
+<app-header *ngIf="currentUser$ | async"></app-header>
+<main class="main-content" [class.no-header]="!(currentUser$ | async)">
+  <router-outlet></router-outlet>
+</main>

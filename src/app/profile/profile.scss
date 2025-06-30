@@ -1,0 +1,645 @@
+.profile-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  min-height: calc(100vh - 64px);
+  background: #f8f9fa;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 1rem 0;
+
+  .back-button {
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    color: #3f51b5;
+    width: 48px;
+    height: 48px;
+
+    &:hover {
+      background: #f5f5f5;
+      transform: translateX(-2px);
+    }
+
+    mat-icon {
+      font-size: 1.5rem;
+    }
+  }
+
+  h1 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #2c3e50;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.profile-content {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+
+  ::ng-deep .mat-mdc-tab-group {
+    .mat-mdc-tab-header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-bottom: none;
+      
+      .mat-mdc-tab-labels {
+        justify-content: center;
+      }
+
+      .mat-mdc-tab {
+        min-width: 120px;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.7);
+        
+        &.mdc-tab--active {
+          color: white;
+        }
+      }
+
+      .mat-mdc-tab-label-content {
+        font-size: 0.95rem;
+      }
+    }
+
+    .mat-mdc-tab-body-wrapper {
+      background: white;
+    }
+  }
+}
+
+.tab-content {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+// Profile Picture Card
+.profile-picture-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+
+  ::ng-deep .mat-mdc-card-header {
+    padding: 1.5rem 1.5rem 0;
+    
+    .mat-mdc-card-title {
+      color: white;
+      font-size: 1.5rem;
+      font-weight: 600;
+      text-align: center;
+    }
+  }
+
+  ::ng-deep .mat-mdc-card-content {
+    padding: 1.5rem;
+  }
+}
+
+.profile-picture-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem 0;
+}
+
+.avatar-container {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+  border: 4px solid white;
+
+  &:hover {
+    transform: scale(1.05);
+
+    .avatar-overlay {
+      opacity: 1;
+    }
+  }
+
+  .profile-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .avatar-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+    color: white;
+
+    mat-icon {
+      font-size: 2rem;
+      width: 2rem;
+      height: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    span {
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+  }
+}
+
+.avatar-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  button {
+    border-radius: 25px;
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    min-width: 140px;
+    
+    &[color="primary"] {
+      background: white;
+      color: #667eea;
+      
+      &:hover {
+        background: #f8f9fa;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+    }
+
+    &:not([color]) {
+      color: white;
+      border: 1px solid white;
+      
+      &:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
+}
+
+// Profile Info Card
+.profile-info-card {
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e9ecef;
+
+  ::ng-deep .mat-mdc-card-header {
+    padding: 1.5rem 1.5rem 0;
+    
+    .mat-mdc-card-title {
+      color: #2c3e50;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    .mat-mdc-card-subtitle {
+      color: #6c757d;
+      font-size: 1rem;
+      margin-top: 0.5rem;
+    }
+  }
+
+  ::ng-deep .mat-mdc-card-content {
+    padding: 1.5rem;
+  }
+}
+
+// Password Card
+.password-card {
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e9ecef;
+  background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+
+  ::ng-deep .mat-mdc-card-header {
+    padding: 1.5rem 1.5rem 0;
+    
+    .mat-mdc-card-title {
+      color: #2d3436;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    .mat-mdc-card-subtitle {
+      color: #636e72;
+      font-size: 1rem;
+      margin-top: 0.5rem;
+    }
+  }
+
+  ::ng-deep .mat-mdc-card-content {
+    background: white;
+    margin: 1rem -1.5rem -1.5rem;
+    padding: 2rem;
+    border-radius: 0 0 16px 16px;
+  }
+}
+
+// Account Info Card
+.account-info-card {
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e9ecef;
+  background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+
+  ::ng-deep .mat-mdc-card-header {
+    padding: 1.5rem 1.5rem 0;
+    
+    .mat-mdc-card-title {
+      color: #2d3436;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    .mat-mdc-card-subtitle {
+      color: #636e72;
+      font-size: 1rem;
+      margin-top: 0.5rem;
+    }
+  }
+
+  ::ng-deep .mat-mdc-card-content {
+    background: white;
+    margin: 1rem -1.5rem -1.5rem;
+    padding: 2rem;
+    border-radius: 0 0 16px 16px;
+  }
+}
+
+// Form Styling
+.form-row {
+  margin-bottom: 1.5rem;
+
+  .full-width {
+    width: 100%;
+  }
+
+  ::ng-deep .mat-mdc-form-field {
+    .mat-mdc-text-field-wrapper {
+      border-radius: 12px;
+      background: #f8f9fa;
+    }
+
+    &.mat-focused .mat-mdc-text-field-wrapper {
+      background: white;
+      box-shadow: 0 2px 8px rgba(63, 81, 181, 0.2);
+    }
+
+    .mat-mdc-form-field-icon-suffix {
+      color: #6c757d;
+    }
+
+    .mdc-text-field--outlined .mdc-notched-outline {
+      border-color: #dee2e6;
+    }
+
+    &.mat-focused .mdc-text-field--outlined .mdc-notched-outline {
+      border-color: #3f51b5;
+      border-width: 2px;
+    }
+  }
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-start;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e9ecef;
+  flex-wrap: wrap;
+
+  button {
+    border-radius: 25px;
+    font-weight: 500;
+    padding: 0.75rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    min-width: 140px;
+    justify-content: center;
+
+    &[color="primary"] {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      
+      &:hover:not(:disabled) {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+      }
+
+      &:disabled {
+        opacity: 0.7;
+        background: #ccc;
+      }
+    }
+
+    &:not([color="primary"]) {
+      color: #6c757d;
+      border: 1px solid #dee2e6;
+      
+      &:hover {
+        background: #f8f9fa;
+        border-color: #adb5bd;
+      }
+    }
+
+    mat-spinner {
+      margin-right: 0.5rem;
+    }
+  }
+}
+
+// Info Grid
+.info-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
+
+  mat-icon {
+    color: #667eea;
+    font-size: 1.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  .info-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    min-width: 0;
+
+    .info-label {
+      font-size: 0.9rem;
+      color: #6c757d;
+      font-weight: 500;
+    }
+
+    .info-value {
+      font-size: 1rem;
+      color: #2c3e50;
+      font-weight: 600;
+      word-break: break-word;
+    }
+  }
+}
+
+// Snackbar Styling
+::ng-deep {
+  .success-snackbar {
+    background: #28a745 !important;
+    color: white !important;
+  }
+
+  .error-snackbar {
+    background: #dc3545 !important;
+    color: white !important;
+  }
+}
+
+// Responsive Design
+@media (max-width: 1024px) {
+  .profile-container {
+    max-width: 100%;
+    padding: 1rem;
+  }
+
+  .tab-content {
+    padding: 1.5rem;
+  }
+
+  .info-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-container {
+    padding: 0.75rem;
+  }
+
+  .profile-header {
+    margin-bottom: 1.5rem;
+    
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    .back-button {
+      width: 40px;
+      height: 40px;
+      
+      mat-icon {
+        font-size: 1.25rem;
+      }
+    }
+  }
+
+  .tab-content {
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+
+  .avatar-container {
+    width: 120px;
+    height: 120px;
+  }
+
+  .avatar-actions {
+    flex-direction: column;
+    width: 100%;
+
+    button {
+      width: 100%;
+      min-width: auto;
+    }
+  }
+
+  .form-actions {
+    flex-direction: column;
+
+    button {
+      width: 100%;
+      min-width: auto;
+    }
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .info-item {
+    padding: 1rem;
+  }
+
+  .profile-picture-section {
+    gap: 1.5rem;
+  }
+
+  ::ng-deep .mat-mdc-tab-group {
+    .mat-mdc-tab-header {
+      .mat-mdc-tab {
+        min-width: 80px;
+        font-size: 0.85rem;
+      }
+
+      .mat-mdc-tab-label-content {
+        font-size: 0.85rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-container {
+    padding: 0.5rem;
+  }
+
+  .profile-header {
+    margin-bottom: 1rem;
+    
+    h1 {
+      font-size: 1.25rem;
+    }
+  }
+
+  .tab-content {
+    padding: 0.75rem;
+  }
+
+  .avatar-container {
+    width: 100px;
+    height: 100px;
+  }
+
+  .profile-picture-section {
+    gap: 1rem;
+  }
+
+  .form-row {
+    margin-bottom: 1rem;
+  }
+
+  .form-actions {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+  }
+
+  .info-item {
+    padding: 0.75rem;
+    
+    mat-icon {
+      font-size: 1.25rem;
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+
+    .info-content {
+      .info-label {
+        font-size: 0.8rem;
+      }
+
+      .info-value {
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  ::ng-deep .mat-mdc-card-header {
+    padding: 1rem 1rem 0 !important;
+    
+    .mat-mdc-card-title {
+      font-size: 1.25rem !important;
+    }
+
+    .mat-mdc-card-subtitle {
+      font-size: 0.9rem !important;
+    }
+  }
+
+  ::ng-deep .mat-mdc-card-content {
+    padding: 1rem !important;
+  }
+
+  .password-card,
+  .account-info-card {
+    ::ng-deep .mat-mdc-card-content {
+      margin: 0.75rem -1rem -1rem !important;
+      padding: 1.5rem 1rem !important;
+    }
+  }
+
+  ::ng-deep .mat-mdc-tab-group {
+    .mat-mdc-tab-header {
+      .mat-mdc-tab {
+        min-width: 60px;
+        padding: 0 8px;
+      }
+
+      .mat-mdc-tab-label-content {
+        font-size: 0.8rem;
+      }
+    }
+  }
+}
+
+// Animation for better UX
+.profile-content {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+} 

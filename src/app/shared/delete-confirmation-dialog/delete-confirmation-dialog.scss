@@ -1,0 +1,86 @@
+.dialog-container {
+  padding: 0;
+  max-width: 400px;
+}
+
+.dialog-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 24px 24px 16px 24px;
+  border-bottom: 1px solid #e0e0e0;
+
+  .warning-icon {
+    color: #ff9800;
+    font-size: 32px;
+    width: 32px;
+    height: 32px;
+  }
+
+  h2 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 500;
+    color: #333;
+  }
+}
+
+.dialog-content {
+  padding: 16px 24px !important;
+
+  p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #666;
+  }
+}
+
+.dialog-actions {
+  padding: 16px 24px 24px 24px !important;
+  gap: 12px;
+  justify-content: flex-end;
+
+  .cancel-button {
+    color: #666;
+  }
+
+  .delete-button {
+    min-width: 100px;
+    
+    mat-icon {
+      margin-right: 8px;
+    }
+  }
+}
+
+// Global dialog styling
+:host ::ng-deep {
+  .mat-mdc-dialog-container {
+    border-radius: 12px;
+    overflow: hidden;
+  }
+}
+
+// Responsive design
+@media (max-width: 480px) {
+  .dialog-container {
+    max-width: 90vw;
+  }
+
+  .dialog-header,
+  .dialog-content,
+  .dialog-actions {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .dialog-actions {
+    flex-direction: column-reverse;
+    gap: 8px;
+
+    button {
+      width: 100%;
+    }
+  }
+} 
